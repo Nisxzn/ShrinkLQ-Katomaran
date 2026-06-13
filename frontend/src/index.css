@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Pinyon+Script&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 337 85% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 337 85% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 337 85% 53%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Dynamic Island style navbar – transparent, blurred, no border */
+  .navbar-dynamic-island {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* No border for a clean transparent look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 9999px; /* fully rounded */
+  }
+
+  /* Glassmorphism card – subtle glass look */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(232, 53, 124, 0.22);
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.06), 0 0 30px -5px rgba(232, 53, 124, 0.09);
+    transform: translateY(-4px);
+  }
+}
+
+  .bg-page {
+    background-color: #ffffff;
+    position: relative;
+  }
+
+  .bg-page::before {
+    content: '';
+    position: fixed;
+    top: -120px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 53, 124, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .bg-page::after {
+    content: '';
+    position: fixed;
+    bottom: -100px;
+    left: -100px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 53, 124, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .font-citadel {
+    font-family: 'Citadel Script', 'Pinyon Script', 'Monsieur La Doulaise', cursive !important;
+  }
+
+  .font-helvetica {
+    font-family: 'Helvetica Now', 'Helvetica Neue', 'Helvetica', Arial, sans-serif !important;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(232, 53, 124, 0.12);
+  }
+
+  .glass-panel-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-panel-hover:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(232, 53, 124, 0.22);
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05), 0 0 50px -10px rgba(232, 53, 124, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .glow-spotlight-pink {
+    background: radial-gradient(circle 600px at 50% 200px, rgba(232, 53, 124, 0.06), transparent 80%);
+  }
+
+  .glow-spotlight-dark {
+    background: radial-gradient(circle 500px at 20% 400px, rgba(15, 23, 42, 0.02), transparent 70%);
+  }
+  
+  .glow-spotlight-accent {
+    background: radial-gradient(circle 500px at 80% 300px, rgba(232, 53, 124, 0.03), transparent 70%);
+  }
+
+  /* Match date-input placeholder opacity to regular placeholders */
+  input[type="date"]:not(:focus):invalid,
+  input[type="date"]:not(:focus)[value=""] {
+    color: #94a3b8; /* slate-400 — same as placeholder-slate-400 */
+  }
+
+  input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    opacity: 1;
+  }
+
+  input[type="date"]:not(:focus)[value=""] ::-webkit-datetime-edit-text,
+  input[type="date"]:not(:focus)[value=""] ::-webkit-datetime-edit-month-field,
+  input[type="date"]:not(:focus)[value=""] ::-webkit-datetime-edit-day-field,
+  input[type="date"]:not(:focus)[value=""] ::-webkit-datetime-edit-year-field {
+    color: #94a3b8;
+  }

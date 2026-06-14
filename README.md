@@ -208,6 +208,12 @@ graph TD
 
 ---
 
+
+## 🎥 Demo Video
+![video] (https://youtu.be/ULJAaCCjErU?si=fQKIwQGi_FF_t4Oo)
+---
+
+
 ## 🔌 API Endpoints
 
 ### 🔐 Authentication APIs
@@ -358,12 +364,6 @@ BASE_URL=http://localhost:5000
 
 ---
 
-## 🎥 Demo Video
-
-<video src="./screenshots/lv_0_20260614105635.mp4" width="100%" controls>
-  Your browser does not support the video tag.
-</video>
----
 
 ## 📦 Sample Database Entries
 
